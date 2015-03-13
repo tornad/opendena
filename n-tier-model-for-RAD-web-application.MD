@@ -1,4 +1,4 @@
-====== n-tier RAD for web application ======
+# n-tier RAD for web application
 
 En 2015, il existe surement plusieurs milliers de frameworks web, répartis sur différentes technologies. Chacun offrant plus ou moins de possibilités.
 
@@ -8,11 +8,11 @@ Coté client, le OnePageApp a pris le dessus, et les frameworks clients permetta
 
 Après 7 ans de développement interne chez opendena, la tendance nous amène à nous orienter sur une stack de ce type. Nos réflexions, et études n'ont bien évidemment pas permis de faire ressortir un framework plus intéressant que les autres. Cependant, voici ici l'axe que je souhaite prendre pour structurer les développements à l'avenir pour avoir à disposition un design pattern permettant de sortir rapidement des applications web ou mobiles, sans réécrire ou réinventer la roue à chaque nouvelle implémentation.
 
-====== JS everywhere ======
-.
+# JS everywhere
 
 
-====== Séparer les affichages de la fourniture des données ======
+
+# Séparer les affichages de la fourniture des données
 
 Il est je pense nécessaire maintenant de séparer la partie Application rendering (HTML) de la partie Application working (API)
 
@@ -25,7 +25,7 @@ Il n'est plus nécessaire de maintenir dans le même projet la partie apps de la
 L'émergence de site fournissant la database(firebase.io) ou les services annexes(pubsub.io) en mode SaaS pour des applis web prouvent la tendance à vouloir/pouvoir séparer les affichages (vue) du comportement ou des fournisseurs de données. 
 
 
-====== WebFront  HTML ======
+# WebFront  HTML
 
 Contient les pages/codes/astuces/algo/tests(end2end) pour le rendering des pages/rubriques de l'application.
 En théorie, l'application doit être capable de fonctionner sur une API bouchon ne contenant que des jsons statistiques ou un firebase.
@@ -37,7 +37,7 @@ L'appli est fourni en statique.
 Le webserveur ne doit pas interagir dans le fonctionnement de l'application.
 
 
-====== BackOffice for microservice API responsive ======
+# BackOffice for microservice API responsive
 
 Le(s) site(s) met à disposition la ou les API pour fournir /répondre à un service / demande.
 Il peut y avoir plusieurs sous api, ou un seul router. L'idéal est aussi de séparer les services du projet tant qu'un service loader cohérent n'existe pas.
@@ -49,7 +49,7 @@ Le système cloisonne et isole les ressources par domaine
 Actuellement, le framework retenu pour gérer le(s) backend(s) API est loopback
 
 
-====== Contents components (CDN like) ======
+# Contents components (CDN like)
 
 L'émergence des webcomponents doit permettre aussi d'ajouter un niveau de cloisonement supplémentaire. Ce niveau doit permettre de simplifier la vue "haute" de l'application et ses concepts, celle-ci faisant appel à plus ou moins de composants applicatifs appelant eux-même les API dont ils ont besoin.
 
@@ -59,7 +59,8 @@ La question de la gestion des modules en nodejs/bower/etc ne se posent quasiment
 
 Des packages/bundles doivent permettre d'accéder à ces mêmes modules packagés (minifiés/sourcés/etc...)
 
-====== Communications intercomposants & réactions évenementiels (one way workflow) ======
+# Communications intercomposants & réactions évenementiels (one way workflow)
+
 
 
 
